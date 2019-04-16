@@ -1,0 +1,11 @@
+/Users/apple/workspace/csharp/exercises/LINQ/bin/Debug/netcoreapp2.2/LINQ.deps.json
+/Users/apple/workspace/csharp/exercises/LINQ/bin/Debug/netcoreapp2.2/LINQ.runtimeconfig.json
+/Users/apple/workspace/csharp/exercises/LINQ/bin/Debug/netcoreapp2.2/LINQ.runtimeconfig.dev.json
+/Users/apple/workspace/csharp/exercises/LINQ/bin/Debug/netcoreapp2.2/LINQ.dll
+/Users/apple/workspace/csharp/exercises/LINQ/bin/Debug/netcoreapp2.2/LINQ.pdb
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.csprojAssemblyReference.cache
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.csproj.CoreCompileInputs.cache
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.AssemblyInfoInputs.cache
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.AssemblyInfo.cs
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.dll
+/Users/apple/workspace/csharp/exercises/LINQ/obj/Debug/netcoreapp2.2/LINQ.pdb
