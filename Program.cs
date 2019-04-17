@@ -35,6 +35,23 @@ namespace linqGroupBy
     public double Balance { get; set; }
     public string Bank { get; set; }
 }
+
+// Define a bank
+public class Bank
+{
+    public string Symbol { get; set; }
+    public string Name { get; set; }
+}
+
+
+ public class ReportItem
+            {
+                public string CustomerName { get; set; }
+                public string BankName { get; set; }
+            }
+
+// Define a customer
+
     class Program
     {
         static void Main(string[] args)
@@ -228,7 +245,10 @@ namespace linqGroupBy
                         //
 
 
- List<Customer> customers = new List<Customer>() {
+
+
+        // Create some customers and store in a List
+        List<Customer> customers = new List<Customer>() {
             new Customer(){ Name="Bob Lesman", Balance=80345.66, Bank="FTB"},
             new Customer(){ Name="Joe Landy", Balance=9284756.21, Bank="WF"},
             new Customer(){ Name="Meg Ford", Balance=487233.01, Bank="BOA"},
@@ -242,6 +262,54 @@ namespace linqGroupBy
         };
 
 
+
+var groupedByBank = customers.Where(c => c.Balance >= 1000000).GroupBy(
+                p => p.Bank,  // Group banks
+                p => p.Name,  // by millionaire names
+                (bank, millionaires) =>
+                {
+                  return new GroupedMillionaires()
+                  {
+                    Bank = bank,
+                    Millionaires = millionaires
+                  };
+                }).ToList();
+
+            foreach (var item in groupedByBank)
+            {
+                Console.WriteLine($"{item.Bank}: {string.Join(" and ", item.Millionaires)}");
+            }
+
+
+
+
+// Create some banks and store in a List
+        List<Bank> banks = new List<Bank>() {
+            new Bank(){ Name="First Tennessee", Symbol="FTB"},
+            new Bank(){ Name="Wells Fargo", Symbol="WF"},
+            new Bank(){ Name="Bank of America", Symbol="BOA"},
+            new Bank(){ Name="Citibank", Symbol="CITI"},
+        };
+
+
+
+        List<Customer> millionaireReport = customers.Where(c => c.Balance >= 1000000)
+
+        // SELECT IS THE NEW ARRAY METHOD "MAP" //
+                .Select(c => new Customer()
+                {
+                    Name = c.Name,
+                    Bank = banks.Find(b => b.Symbol == c.Bank).Name,
+                    Balance = c.Balance
+                })
+                .ToList();
+
+            foreach (Customer customer in millionaireReport)
+            {
+                Console.WriteLine($"{customer.Name} at {customer.Bank}");
+            }
+
+
 // // Build a collection of these numbers sorted in ascending order
 // List<int> numbers = new List<int>()
 // {
@@ -250,6 +318,21 @@ namespace linqGroupBy
 
 
 
+
+
+
+
+
         }
     }
+
+  internal class GroupedMillionaires
+  {
+    public GroupedMillionaires()
+    {
+    }
+
+    public string Bank { get; set; }
+    public IEnumerable<string> Millionaires { get; set; }
+  }
 }
